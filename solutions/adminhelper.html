@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Console.Jedi - Проекты Nota.Opensource</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="/">
+                    Проекты
+                </a>
+            </li>
+            <li>
+                <a href="/solutions/cj.html">- Console Jedi</a>
+            </li>
+            <li>
+                <a href="/solutions/adminhelper.html">- Admin Helper</a>
+            </li>
+            <li>
+                <a href="/philosophy.html">Подход</a>
+            </li>
+            <li>
+                <a href="https://github.com/notamedia/">Github</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Меню</a>
+                    <h1>Admin Helper</h1>
+
+                    <p><a href="https://github.com/DigitalWand/digitalwand.admin_helper">https://github.com/DigitalWand/digitalwand.admin_helper</a></p>
+
+                    <p><b>Основные преимущества</b></p>
+
+                    <ul>
+                    <li>позволяет быстро создавать административные интерфейсы для сущностей ORM Битрикс</li>
+                    <li>повторяет интерфейсы "инфоблоков" - не надо будет переучивать менеджеров!</li>
+                    <li>легко расширяется, без написания лишнего кода - почувствуйте мощь ООП</li>
+                    <li>совместный вывод и управление записями и категориями этих записей</li>
+                    <li>возможность создания интерфейсов, не завязанных на ОРМ-моделях</li>
+                    </ul>
+
+                    <p>Модуль реализует подход шаблона проектирования MVC в создании страниц для панели управления Битрикса.</p>
+
+                    <p>Если у вас есть модель, написанная на ORM 1C-Битрикс, вы за считанные минуты сможете сделать раздел для управления данными этой модели, ничем не уступающему по своим возможностям и внешнему виду интерфейсу управления элементами инфоблоков.<br/>
+                    Внешний вид полей и логика работы легко кастомизируется и дорабатывается разработчиками.</p>
+
+                    <h2>Разработчики</h2>
+
+                    <p>Решение разработано совместно компаниями <a href="http://digitalwand.ru/">DigitalWand</a> и <a href="http://nota.media">агенством Notamedia</a> и активно используется в их проектах.</p>
+
+                    <p>Решение хорошо показало себя на крупных и ответственных государственных проектах своей надёжностью и гибкостью.</p>
+
+                    <h2>Что можно делать с помощью решения</h2>
+
+                    <p><b>Кастомизируйте различные поля</b> с помощью так называемых "виджетов". Отображение каждого поля кастомизируется, как Вам заблагорассудится.</p>
+                    <img src="/solutions/img/ah_widgets.jpg"/>
+
+                    <p><b>Экономьте время</b> на разворачивании и поддержке страниц админки. Прописывайте только то, что действительно относится к вашим страницам и не копируйте макароны с кодом. Оцените, например, страницу редактирования категорий на одном из проектов:</p>
+                    <img src="/solutions/img/ah_editpage.jpg"/>
+
+
+                    <h2>Как это использовать</h2>
+
+                    <p>1. Установите <a href="https://getcomposer.org">composer</a>, если Вы ещё не сделали этого.<br />
+                    Как это правильно сделать в 1С-Битрикс <a href="/philosophy.html">читайте в статье</a>.</p>
+
+                    <p>2. Подключите зависимость <code>"digitalwand/digitalwand.admin_helper"</code> и укажите версию.<br />
+                    <code>composer require digitalwand/digitalwand.admin_helper</code></p>
+
+                    <p>3. Создайте модуль, например <code>local/modules/demo.adminhelper</code>.<br/>
+                    Обратите внимание, что все классы должны начинаться с неймспейса Demo\AdminHelper, чтобы работала автозагрузка классов.</p>
+
+                    <p>4. Создайте сущность в модуле.<br/>
+                    В каталоге lib вашего модуля создайте каталог под сущность новостей: <code>demo.adminhelper/lib/news</code>. В нём мы будем размещать всё, что так или иначе связано с сущностью новостей.<br/>
+                    А всё относящееся к интерфейсу панели управления Битрикса — положим в каталог <code>demo.adminhelper/lib/news/admininterface</code>.</p>
+
+                    <p>5. Создадим модель на базе ORM 1С-Битрикс:
+<pre>
+&lt?php
+namespace Demo\AdminHelper\News;
+
+use Bitrix\Main\Entity\DataManager;
+use Bitrix\Main\Localization\Loc;
+use Bitrix\Main\Type\DateTime;
+
+Loc::loadMessages(__FILE__);
+
+/**
+ * Модель новостей.
+ */
+class NewsTable extends DataManager
+{
+    /**
+     * {@inheritdoc}
+     */
+    public static function getTableName()
+    {
+        return 'd_ah_news';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getMap()
+    {
+        return array(
+            'ID' => array(
+                'data_type' => 'integer',
+                'primary' => true,
+                'autocomplete' => true,
+            ),
+            'TITLE' => array(
+                'data_type' => 'string',
+                'title' => Loc::getMessage('DEMO_AH_NEWS_TITLE')
+            ),
+            'TEXT' => array(
+                'data_type' => 'text',
+                'title' => Loc::getMessage('DEMO_AH_NEWS_TEXT')
+            ),
+            // Для всех полей, используемых визивигом, нужно создавать в таблице атрибут с суффиксом _TEXT_TYPE.
+            // В нём будет храниться информация о типе сохранённого контента (ХТМЛ или обычный текст).
+            'TEXT_TEXT_TYPE' => array(
+                'data_type' => 'string'
+            ),
+        );
+    }
+}
+</pre></p>
+
+
+
+                    <p>6. Пропишем табы и отображение полей, отнаследовавшись от базового класса.<br/>
+                    Также укажем, с помощью какого <i>виджета</i> отображать каждое из полей. Виджеты, в данном случае, - это специальные классы, отвечающие за отображение полей. Вы можете отнаследоваться от любого из существующих и отобразить, например, число в виде слайдера.
+<pre>
+&lt;?php
+
+namespace Demo\AdminHelper\News\AdminInterface;
+
+use Bitrix\Main\Localization\Loc;
+use DigitalWand\AdminHelper\Helper\AdminInterface;
+use DigitalWand\AdminHelper\Widget\DateTimeWidget;
+use DigitalWand\AdminHelper\Widget\FileWidget;
+use DigitalWand\AdminHelper\Widget\NumberWidget;
+use DigitalWand\AdminHelper\Widget\StringWidget;
+use DigitalWand\AdminHelper\Widget\UrlWidget;
+use DigitalWand\AdminHelper\Widget\UserWidget;
+use DigitalWand\AdminHelper\Widget\VisualEditorWidget;
+
+Loc::loadMessages(__FILE__);
+
+/**
+ * Описание интерфейса (табок и полей) админки новостей.
+ *
+ * {@inheritdoc}
+ */
+class NewsAdminInterface extends AdminInterface
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function fields()
+    {
+        return array(
+            'MAIN' => array(
+                'NAME' => Loc::getMessage('DEMO_AH_NEWS'),
+                'FIELDS' => array(
+                'ID' => array(
+                    'WIDGET' => new NumberWidget(),
+                    'READONLY' => true,
+                    'FILTER' => true,
+                    'HIDE_WHEN_CREATE' => true
+                ),
+                'TITLE' => array(
+                    'WIDGET' => new StringWidget(),
+                    'SIZE' => '80',
+                    'FILTER' => '%',
+                    'REQUIRED' => true
+                ),
+                'TEXT' => array(
+                    'WIDGET' => new VisualEditorWidget(),
+                    'HEADER' => false
+                ),
+            )
+        );
+    }
+
+    /**
+    * {@inheritdoc}
+    */
+    public function helpers()
+    {
+        return array(
+            '\Demo\AdminHelper\News\AdminInterface\NewsListHelper',
+            '\Demo\AdminHelper\News\AdminInterface\NewsEditHelper'
+        );
+    }
+}
+</pre></p>
+
+
+
+                    <p>7. Создадим страницы списка новостей и редактирования отдельной новости.
+<pre>
+&lt;?php
+namespace Demo\AdminHelper\News\AdminInterface;
+
+use DigitalWand\AdminHelper\Helper\AdminListHelper;
+
+/**
+ * Хелпер описывает интерфейс, выводящий список новостей.
+ * Обратите внимание, что нам достаточно прописать только класс, с которым будет работать список новостей - всё остальное модуль сделает сам!
+ *
+ * {@inheritdoc}
+ */
+class NewsListHelper extends AdminListHelper
+{
+	protected static $model = '\Demo\AdminHelper\News\NewsTable';
+}
+</pre>
+
+<pre>
+&lt;?php
+namespace Demo\AdminHelper\News\AdminInterface;
+
+use DigitalWand\AdminHelper\Helper\AdminEditHelper;
+
+/**
+ * Хелпер описывает интерфейс, выводящий форму редактирования новости.
+ *
+ * {@inheritdoc}
+ */
+class NewsEditHelper extends AdminEditHelper
+{
+    protected static $model = '\Demo\AdminHelper\News\NewsTable';
+}
+</pre>
+</p>
+
+<p>8. Наслаждайтесь собой!<br/>
+За считанные минуты вы создали "тонкую" админку, которую легко кастомизировать и которой легко управлять. Ключевые файлы малы и легки в понимании, а сэкономленное время при поддержке решения (Вам теперь не придётся читать простыни кода!) Вы можете потратить с большей пользой.
+</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

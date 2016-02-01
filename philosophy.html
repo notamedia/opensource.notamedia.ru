@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Философия подхода - Проекты Nota.Opensource</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="/">
+                    Проекты
+                </a>
+            </li>
+            <li>
+                <a href="/solutions/cj.html">- Console Jedi</a>
+            </li>
+            <li>
+                <a href="/solutions/adminhelper.html">- Admin Helper</a>
+            </li>
+            <li>
+                <a href="/philosophy.html">Подход</a>
+            </li>
+            <li>
+                <a href="https://github.com/notamedia/">Github</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Меню</a>
+                    <h1>Философия подхода</h1>
+
+                    <p>Нам нравится идеология UNIX/Linux - <em>один компонент или одна программа должны выполнять только какую-то одну задачу, но зато выполнять её хорошо</em>.
+                        Поэтому в разработках на PHP мы используем <em>менеджер пакетов Composer</em>, даже в разработках на “1С-Битрикс”, и проводим качественное тестирование и проверку качества кода.</p>
+
+                    <p>Opensource позволяет нам в любой момент сделать свою версию репозитория и развивать её независимо от вендора - если это так необходимо для конкретного проекта. Мы можем <em>кэшировать репозитории с помощью Satis</em> на случай катастроф или отключения Github-а, или же, если проект долговременный и важна поддержка и развитие - допиливать проект совместно с вендором, к нашей совместной выгоде.</p>
+
+                    <p>Мы обязательно соблюдаем <em>семантическое версионирование</em> - это строгая необходимость для коммерческих проектов, в которых нельзя позволить себе спонтанную поломку обратной совместимости. Благодаря этому ни одного провала из-за изменения кода вендора не было, и при этом мы не потеряли гибкость и получение апдейтов.</p>
+
+                    <p><em>Даже уходя из компании, наши тимлиды продолжают развивать опенсорс продукты</em> и, таким образом, помогают своей alma mater. Которая, в свою очередь, помогает им. Идеальный пример отношений win-win.</p>
+
+                    <p>Мы <em>трепетно относимся к документации</em>. Значительный профессиональный опыт научил нас, что лучше один раз написать ответы на вопросы, чем сто раз их услышать.</p>
+
+                    <p>Наконец, мы просто хотим сделать мир лучше и добрее :) Поэтому мы делимся с Вами своими наработками.</p>
+
+                    <h2>Как перестать бояться и начать использовать composer в проектах на 1С-Битрикс</h2>
+
+                    <p>Композер нужен для того, чтобы быстро подключать нужные версии пакетов (модулей, библиотек) на свои проекты. Чтобы понять базовые вещи касательно него, <a href="https://habrahabr.ru/post/145946/">почитайте статью на Хабра-Хабре</a></p>
+                    <p>К счастью (и нашими стараниями тоже), композер научен работать с 1С-Битрикс, хотя есть несколько ньюансов. Прежде чем преступить к использованию composer в 1С-Битрикс, убедитесь, что вы знаете:</p>
+                    <ul>
+                        <li>Что вы знаете, чем отличается <code>composer install</code> от <code>composer update</code>.</li>
+                        <li>Вы развернули зависимости с помощью composer на любом проекте, на любом фрэймворке, хотя бы раз.</li>
+                        <li>Вы знаете, к чему приводит правка файла <code>composer.json</code></li>
+                    </ul>
+
+                    <p>Если вышеописанные требования выполнены, Вы можете приступать к использованию Composer в 1С-Битрикс.</p>
+
+                    <p>1. Положите composer.json в document_root проекта. Туда, где лежит <code>urlrewrite.php</code> и корневой <code>index.php</code>. Здесь же Вы можете разместить файл <code>composer.phar</code>, который содержит в себе исполняемое приложение Композера.</p>
+                    <p>2. Правильно настройте свой файл <code>.gitignore</code>. Здесь часто допускают ошибки, правильная схема следующая:
+                    </p>
+                    <ul>
+                        <li>Git игнорирует папку <code>vendor/</code> и <code>composer.phar</code> - первая должна разворачиваться с помощью composer, а второй вовсе лучше не "таскать" за собой.<br/>
+                            Корпоративный сектор зачастую боится отключения Github/жёстких политик безопасности. Не поддавайтесь на провокации. Вместо игнорирования вышеописанного правила, лучше воспользуйтесь кэширующим сервером наподобие <a href="https://habrahabr.ru/post/197666/">Satis</a>, установленным на отдельную, доверенную машину.
+                        </li>
+                        <li>Git НЕ игнорирует файл <code>composer.lock</code> - без этого файла Вы никак не можете развернуть на продуктивной площадке именно те версии пакетов, что были Вами протестированы на других площадках.</li>
+                    </ul>
+                    <p>3. Настройте свой веб-сервер.<br/>
+                        <code>vendor</code>, <code>composer.lock</code>, <code>composer.json</code>, <code>composer.phar</code> должны быть недоступны для посетителей сайта, при обращении к этим файлам должна отдаваться страница 404 или 403.<br/>
+                        Если у Вас работает Apache, то Вы можете сделать это через файл <code>.htaccess</code>.
+                    </p>
+                    <p>4. Настройте файл <code>composer.json</code></p>
+                    <ul>
+                        <li>Обязательно подключите пакет <code>composer/installers</code> - он позволит устанавливать модули 1С-Битрикс.</li>
+                        <li>Обязательно прописывайте версии подключаемых пакетов. Это особенно важно для корпоративной разработки, когда Вы не можете позволить себе спонтанного обновления установленных библиотек и модулей.</li>
+                        <li>Шаблоны вёрстки должны подключаться через Composer</li>
+                        <li>Модули и наработки компании должны подключаться через Composer</li>
+                        <li>В разделе <code>repositories</code> укажите доступ к Satis (если он есть)</li>
+                        <li>Там же отключите прямой доступ к Github/Packagist, если это нужно (<code>"packagist": false</code>)</li>
+                        <li>Пропишите там же доступ к репозиториям с вёрсткой и репозиториям в git-е Вашей компании</li>
+                        <li>В разделе <code>"extra"</code>/<code>"installer-paths"</code> пропишите указания для composer-а, куда и как устанавливать вёрстку и модули.</li>
+                    </ul>
+                    <p>5. В результате Ваш <code>composer.json</code> должен преобрести примерно следующий вид:</p>
+                    <pre>
+{
+  "name": "notamedia/myproject",
+  "description": "Проект от агенства Notamedia",
+  "keywords": [
+    "bitrix"
+  ],
+  "homepage": "http://nota.media",
+  "type": "project",
+  "license": "Commerce",
+  "support": {
+    "issues": "http://issues.notamedia.ru",
+  },
+  "config": {
+    "process-timeout": 1000
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0",
+    "notamedia/console-jedi": "v1.0",
+    "notamedia/projectmarkup": "v1.0.1",
+    "digitalwand/digitalwand.admin_helper": "2.0.1",
+    "composer/installers": "1.0.22",
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.8.x-dev",
+  },
+  "extra": {
+    "installer-paths": {
+      "local/templates/.default/project_markup": ["notamedia/projectmarkup"]
+    }
+  },
+  "repositories": [
+    {
+      "packagist": false
+    },
+    {
+      "type": "composer",
+      "url": "http://satis.for.friends.notamedia.ru"
+    },
+    {
+      "type": "vcs",
+      "url": "git@some.gitpath.notamedia.ru:notamedia/projectmarkup"
+    }
+  ]
+}</pre>
+
+    <p>6. Начинайте разрабатывать свои модули на базе существующих решений и/или <a href="https://github.com/bitrix-expert/bex.d7dull">заготовок</a>.</p>
+    <p>7. Экономьте время разработчиков и деньги компании. Не пишите решения дважды! Разрабатывайте модули, отдавайте их в опенсорс и делайте проекты совместно с коллегами по цеху!</p>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
