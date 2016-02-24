@@ -103,8 +103,7 @@
                                 Старайтесь не использовать неявное указание версии через <code>"*"</code>, если Вы занимаетесь коммерческой разработкой. Следуйте принципам семантического версионирования или фиксируйте версию явно.</p>
                         </li>
                         <li>
-                            <p>Установщик создаст файл <code>jedi</code>, через который будет осуществляться запуск консольных команд.<br />
-                                Он создаст файл на уровень выше DOCUMENT_ROOT-а. Т.е. если Ваш корневой <code>index.php</code> лежит по пути <code>/var/www/website/index.php</code>, файл <code>jedi</code> создастся по пути <code>/var/www/jedi</code>.</p>
+                            <p>Запустите установщик в консольном режиме: <code>./vendor/bin/jedi init</code> и ответьте ему в интерактивном режиме на вопросы. Это разовая операция, с помощью которой генерируется файл <code>jedi</code>, используемый для запуска консольных команд.</p>
                         </li>
                         <li>
                             <p>Запустите команду <code>jedi bitrix/cache:clear</code></p>
@@ -137,11 +136,11 @@
                             <p>В модуле создайте файл <code>cli.php</code>: <code>/local/modules/mycompany.synchwithcrm/cli.php</code><br />
                                 В этом файле Вы пропишете список команд, например<br />
                                 <code>
-                                    &lt;?php
-                                    return [
-                                    'commands' =&gt; [
-                                    new \Mycompany\Synchwithcrm\Console\DoSynchCommand(),
-                                    ]
+                                    &lt;?php<br/>
+                                    return [<br/>
+                                    'commands' =&gt; [<br/>
+                                    new \Mycompany\Synchwithcrm\Console\DoSynchCommand(),<br/>
+                                    ]<br/>
                                     ];
                                 </code>
                                 <br />
