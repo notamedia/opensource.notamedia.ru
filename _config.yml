@@ -1,0 +1,12 @@
+name: opensource.notamedia.ru
+author: Лучшие из лучших
+description: Открытые проекты агенства Notamedia
+markdown: redcarpet
+#paginate: 5
+highlighter: pygments
+url: http://opensource.notamedia.ru
+tag_page_layout: tag_page
+tag_page_dir: tag
+rss_post_limit: 10
+feed_url: http://opensource.notamedia.ru/rss.xml
+excerpt_separator: "<!-- more -->"
