@@ -40,6 +40,9 @@
                 <a href="/console-jedi/">- Console Jedi</a>
             </li>
             <li>
+                <a href="/console-jedi/man/readme.html">-- Документация</a>
+            </li>
+            <li>
                 <a href="/adminhelper/">- Admin Helper</a>
             </li>
             <li>
@@ -86,7 +89,7 @@
 <p>Если вышеописанные требования выполнены, Вы можете приступать к использованию Composer в 1С-Битрикс.</p>
 
 <ul>
-<li><p>Положите composer.json в document_root проекта. Туда, где лежит <code>urlrewrite.php</code> и корневой <code>index.php</code>. <br/>
+<li><p>Положите composer.json в document_root проекта. Туда, где лежит <code>urlrewrite.php</code> и корневой <code>index.php</code>. <br />
 Здесь же Вы можете разместить файл <code>composer.phar</code>, который содержит в себе исполняемое приложение Композера.</p></li>
 <li><p>Правильно настройте свой файл <code>.gitignore</code>. Здесь часто допускают ошибки, правильная схема следующая:</p>
 
@@ -94,8 +97,8 @@
 <li>Git игнорирует папку <code>vendor/</code> и <code>composer.phar</code> - первая должна разворачиваться с помощью composer, а второй вовсе лучше не &quot;таскать&quot; за собой. Корпоративный сектор зачастую боится отключения Github/жёстких политик безопасности. Не поддавайтесь на провокации. Вместо игнорирования вышеописанного правила, лучше воспользуйтесь кэширующим сервером наподобие <a href="https://habrahabr.ru/post/197666/">Satis</a>, установленным на отдельную, доверенную машину.</li>
 <li>Git НЕ игнорирует файл <code>composer.lock</code> - без этого файла Вы никак не можете развернуть на продуктивной площадке именно те версии пакетов, что были Вами протестированы на других площадках.</li>
 </ul></li>
-<li><p>Настройте свой веб-сервер<br/>
-<code>vendor</code>, <code>composer.lock</code>, <code>composer.json</code>, <code>composer.phar</code> должны быть недоступны для посетителей сайта, при обращении к этим файлам должна отдаваться страница 404 или 403.<br/>
+<li><p>Настройте свой веб-сервер<br />
+<code>vendor</code>, <code>composer.lock</code>, <code>composer.json</code>, <code>composer.phar</code> должны быть недоступны для посетителей сайта, при обращении к этим файлам должна отдаваться страница 404 или 403.<br />
 Если у Вас работает Apache, то Вы можете сделать это через файл <code>.htaccess</code>.</p></li>
 <li><p>Настройте файл <code>composer.json</code></p>
 

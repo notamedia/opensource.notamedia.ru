@@ -40,6 +40,9 @@
                 <a href="/console-jedi/">- Console Jedi</a>
             </li>
             <li>
+                <a href="/console-jedi/man/readme.html">-- Документация</a>
+            </li>
+            <li>
                 <a href="/adminhelper/">- Admin Helper</a>
             </li>
             <li>
@@ -85,24 +88,24 @@
 <h2>Что можно делать с помощью решения</h2>
 
 <p><strong>Кастомизируйте различные поля</strong> с помощью так называемых &quot;виджетов&quot;. Отображение каждого поля кастомизируется, как Вам заблагорассудится.
-<img src="/img/ah_widgets.jpg"/></p>
+<img src="/img/ah_widgets.jpg" /></p>
 
 <p><strong>Экономьте время</strong> на разворачивании и поддержке страниц админки. Прописывайте только то, что действительно относится к вашим страницам и не копируйте макароны с кодом. Оцените, например, страницу редактирования категорий на одном из проектов:
-<img src="/img/ah_editpage.jpg"/></p>
+<img src="/img/ah_editpage.jpg" /></p>
 
 <h2>Как это использовать</h2>
 
 <ul>
-<li><p>Установите <a href="https://getcomposer.org">composer</a>, если Вы ещё не сделали этого.<br/>
+<li><p>Установите <a href="https://getcomposer.org">composer</a>, если Вы ещё не сделали этого.<br />
 Как это правильно сделать в 1С-Битрикс <a href="/philosophy.html">читайте в статье</a>.</p></li>
-<li><p>Подключите зависимость <code>&quot;digitalwand/digitalwand.admin_helper&quot;</code> и укажите версию.<br/>
+<li><p>Подключите зависимость <code>&quot;digitalwand/digitalwand.admin_helper&quot;</code> и укажите версию.<br />
 <code>composer require digitalwand/digitalwand.admin_helper</code></p></li>
-<li><p>Создайте модуль, например <code>local/modules/demo.adminhelper</code>.<br/>
+<li><p>Создайте модуль, например <code>local/modules/demo.adminhelper</code>.<br />
 Обратите внимание, что все классы должны начинаться с неймспейса Demo\AdminHelper, чтобы работала автозагрузка классов.</p></li>
-<li><p>Создайте сущность в модуле.<br/>
-В каталоге lib вашего модуля создайте каталог под сущность новостей: <code>demo.adminhelper/lib/news</code>. В нём мы будем размещать всё, что так или иначе связано с сущностью новостей.<br/>
+<li><p>Создайте сущность в модуле.<br />
+В каталоге lib вашего модуля создайте каталог под сущность новостей: <code>demo.adminhelper/lib/news</code>. В нём мы будем размещать всё, что так или иначе связано с сущностью новостей.<br />
 А всё относящееся к интерфейсу панели управления Битрикса — положим в каталог <code>demo.adminhelper/lib/news/admininterface</code>.</p></li>
-<li><p>Создадим модель на базе ORM 1С-Битрикс:<br/></p></li>
+<li><p>Создадим модель на базе ORM 1С-Битрикс:<br /></p></li>
 </ul>
 <div class="highlight"><pre><code class="language-text" data-lang="text">&lt;?php
 namespace Demo\AdminHelper\News;
@@ -155,7 +158,7 @@ class NewsTable extends DataManager
 }
 </code></pre></div>
 <ul>
-<li>Пропишем табы и отображение полей, отнаследовавшись от базового класса.<br/>
+<li>Пропишем табы и отображение полей, отнаследовавшись от базового класса.<br />
 Также укажем, с помощью какого <em>виджета</em> отображать каждое из полей. Виджеты, в данном случае, - это специальные классы, отвечающие за отображение полей. Вы можете отнаследоваться от любого из существующих и отобразить, например, число в виде слайдера.</li>
 </ul>
 <div class="highlight"><pre><code class="language-text" data-lang="text">&lt;?php
@@ -240,7 +243,8 @@ class NewsListHelper extends AdminListHelper
 {
     protected static $model = &#39;\Demo\AdminHelper\News\NewsTable&#39;;
 }
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">&lt;?php
+</code></pre></div>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;?php
 namespace Demo\AdminHelper\News\AdminInterface;
 
 use DigitalWand\AdminHelper\Helper\AdminEditHelper;
@@ -256,7 +260,7 @@ class NewsEditHelper extends AdminEditHelper
 }
 </code></pre></div>
 <ul>
-<li>Наслаждайтесь собой!<br/>
+<li>Наслаждайтесь собой!<br />
 За считанные минуты вы создали &quot;тонкую&quot; админку, которую легко кастомизировать и которой легко управлять. Ключевые файлы малы и легки в понимании, а сэкономленное время при поддержке решения (Вам теперь не придётся читать простыни кода!) Вы можете потратить с большей пользой.</li>
 </ul>
 
