@@ -1,3 +1,8 @@
+#
+#  По непонятной мне пока причине автоматический запуск этого скрипта не приводит к корректной установке.
+#  Извините, сейчас нет времени разбираться.
+#  Выполняйте команды в баше вручную и смотрите, что происходит
+#
 # @url http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04/
 
 sudo apt-get update
@@ -19,11 +24,12 @@ git clone https://github.com/rbenv/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-g
 
 rbenv install 2.2.3
 rbenv global 2.2.3
-ruby -v
+#ruby -v
 
-sudo apt-get install make gcc nodejs
+sudo apt-get install -y make gcc nodejs
 gem install jekyll
 gem install github-pages
 gem install jekyll-tagging
 gem install jekyll-paginate
 gem install pygments.rb
+gem install redcarpet
