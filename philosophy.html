@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Философия подхода - Проекты Nota.Opensource</title>
+    <title>Философия подхода Nota.Opensource</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -34,15 +34,13 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="/">
-                    Проекты
-                </a>
+                <a href="/">Проекты</a>
             </li>
             <li>
-                <a href="/solutions/cj.html">- Console Jedi</a>
+                <a href="/console-jedi/">- Console Jedi</a>
             </li>
             <li>
-                <a href="/solutions/adminhelper.html">- Admin Helper</a>
+                <a href="/adminhelper/">- Admin Helper</a>
             </li>
             <li>
                 <a href="/philosophy.html">Подход</a>
@@ -61,109 +59,108 @@
                 <div class="col-lg-12">
                     <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Меню</a>
                     <h1>Философия подхода</h1>
-
                     <p>Нам нравится идеология UNIX/Linux - <em>один компонент или одна программа должны выполнять только какую-то одну задачу, но зато выполнять её хорошо</em>.
-                        Поэтому в разработках на PHP мы используем <em>менеджер пакетов Composer</em>, даже в разработках на “1С-Битрикс”, и проводим качественное тестирование и проверку качества кода.</p>
+Поэтому в разработках на PHP мы используем <em>менеджер пакетов Composer</em>, даже в разработках на “1С-Битрикс”, и проводим качественное тестирование и проверку качества кода.</p>
 
-                    <p>Opensource позволяет нам в любой момент сделать свою версию репозитория и развивать её независимо от вендора - если это так необходимо для конкретного проекта. Мы можем <em>кэшировать репозитории с помощью Satis</em> на случай катастроф или отключения Github-а, или же, если проект долговременный и важна поддержка и развитие - допиливать проект совместно с вендором, к нашей совместной выгоде.</p>
+<p>Opensource позволяет нам в любой момент сделать свою версию репозитория и развивать её независимо от вендора - если это так необходимо для конкретного проекта. Мы можем <em>кэшировать репозитории с помощью Satis</em> на случай катастроф или отключения Github-а, или же, если проект долговременный и важна поддержка и развитие - допиливать проект совместно с вендором, к нашей совместной выгоде.</p>
 
-                    <p>Мы обязательно соблюдаем <em>семантическое версионирование</em> - это строгая необходимость для коммерческих проектов, в которых нельзя позволить себе спонтанную поломку обратной совместимости. Благодаря этому ни одного провала из-за изменения кода вендора не было, и при этом мы не потеряли гибкость и получение апдейтов.</p>
+<p>Мы обязательно соблюдаем <em>семантическое версионирование</em> - это строгая необходимость для коммерческих проектов, в которых нельзя позволить себе спонтанную поломку обратной совместимости. Благодаря этому ни одного провала из-за изменения кода вендора не было, и при этом мы не потеряли гибкость и получение апдейтов.</p>
 
-                    <p><em>Даже уходя из компании, наши тимлиды продолжают развивать опенсорс продукты</em> и, таким образом, помогают своей alma mater. Которая, в свою очередь, помогает им. Идеальный пример отношений win-win.</p>
+<p><em>Даже уходя из компании, наши тимлиды продолжают развивать опенсорс продукты</em> и, таким образом, помогают своей alma mater. Которая, в свою очередь, помогает им. Идеальный пример отношений win-win.</p>
 
-                    <p>Мы <em>трепетно относимся к документации</em>. Значительный профессиональный опыт научил нас, что лучше один раз написать ответы на вопросы, чем сто раз их услышать.</p>
+<p>Мы <em>трепетно относимся к документации</em>. Значительный профессиональный опыт научил нас, что лучше один раз написать ответы на вопросы, чем сто раз их услышать.</p>
 
-                    <p>Наконец, мы просто хотим сделать мир лучше и добрее :) Поэтому мы делимся с Вами своими наработками.</p>
+<p>Наконец, мы просто хотим сделать мир лучше и добрее :) Поэтому мы делимся с Вами своими наработками.</p>
 
-                    <h2>Как перестать бояться и начать использовать composer в проектах на 1С-Битрикс</h2>
+<h2>Как перестать бояться и начать использовать composer в проектах на 1С-Битрикс</h2>
 
-                    <p>Композер нужен для того, чтобы быстро подключать нужные версии пакетов (модулей, библиотек) на свои проекты. Чтобы понять базовые вещи касательно него, <a href="https://habrahabr.ru/post/145946/">почитайте статью на Хабра-Хабре</a></p>
-                    <p>К счастью (и нашими стараниями тоже), композер научен работать с 1С-Битрикс, хотя есть несколько ньюансов. Прежде чем преступить к использованию composer в 1С-Битрикс, убедитесь, что вы знаете:</p>
-                    <ul>
-                        <li>Что вы знаете, чем отличается <code>composer install</code> от <code>composer update</code>.</li>
-                        <li>Вы развернули зависимости с помощью composer на любом проекте, на любом фрэймворке, хотя бы раз.</li>
-                        <li>Вы знаете, к чему приводит правка файла <code>composer.json</code></li>
-                    </ul>
+<p>Композер нужен для того, чтобы быстро подключать нужные версии пакетов (модулей, библиотек) на свои проекты. Чтобы понять базовые вещи касательно него, <a href="https://habrahabr.ru/post/145946/">почитайте статью на Хабра-Хабре</a>
+К счастью (и нашими стараниями тоже), композер научен работать с 1С-Битрикс, хотя есть несколько ньюансов. Прежде чем преступить к использованию composer в 1С-Битрикс, убедитесь, что вы знаете:</p>
 
-                    <p>Если вышеописанные требования выполнены, Вы можете приступать к использованию Composer в 1С-Битрикс.</p>
+<ul>
+<li>Что вы знаете, чем отличается <code>composer install</code> от <code>composer update</code>.</li>
+<li>Вы развернули зависимости с помощью composer на любом проекте, на любом фрэймворке, хотя бы раз.</li>
+<li>Вы знаете, к чему приводит правка файла <code>composer.json</code></li>
+</ul>
 
-                    <p>1. Положите composer.json в document_root проекта. Туда, где лежит <code>urlrewrite.php</code> и корневой <code>index.php</code>. Здесь же Вы можете разместить файл <code>composer.phar</code>, который содержит в себе исполняемое приложение Композера.</p>
-                    <p>2. Правильно настройте свой файл <code>.gitignore</code>. Здесь часто допускают ошибки, правильная схема следующая:
-                    </p>
-                    <ul>
-                        <li>Git игнорирует папку <code>vendor/</code> и <code>composer.phar</code> - первая должна разворачиваться с помощью composer, а второй вовсе лучше не "таскать" за собой.<br/>
-                            Корпоративный сектор зачастую боится отключения Github/жёстких политик безопасности. Не поддавайтесь на провокации. Вместо игнорирования вышеописанного правила, лучше воспользуйтесь кэширующим сервером наподобие <a href="https://habrahabr.ru/post/197666/">Satis</a>, установленным на отдельную, доверенную машину.
-                        </li>
-                        <li>Git НЕ игнорирует файл <code>composer.lock</code> - без этого файла Вы никак не можете развернуть на продуктивной площадке именно те версии пакетов, что были Вами протестированы на других площадках.</li>
-                    </ul>
-                    <p>3. Настройте свой веб-сервер.<br/>
-                        <code>vendor</code>, <code>composer.lock</code>, <code>composer.json</code>, <code>composer.phar</code> должны быть недоступны для посетителей сайта, при обращении к этим файлам должна отдаваться страница 404 или 403.<br/>
-                        Если у Вас работает Apache, то Вы можете сделать это через файл <code>.htaccess</code>.
-                    </p>
-                    <p>4. Настройте файл <code>composer.json</code></p>
-                    <ul>
-                        <li>Обязательно подключите пакет <code>composer/installers</code> - он позволит устанавливать модули 1С-Битрикс.</li>
-                        <li>Обязательно прописывайте версии подключаемых пакетов. Это особенно важно для корпоративной разработки, когда Вы не можете позволить себе спонтанного обновления установленных библиотек и модулей.</li>
-                        <li>Шаблоны вёрстки должны подключаться через Composer</li>
-                        <li>Модули и наработки компании должны подключаться через Composer</li>
-                        <li>В разделе <code>repositories</code> укажите доступ к Satis (если он есть)</li>
-                        <li>Там же отключите прямой доступ к Github/Packagist, если это нужно (<code>"packagist": false</code>)</li>
-                        <li>Пропишите там же доступ к репозиториям с вёрсткой и репозиториям в git-е Вашей компании</li>
-                        <li>В разделе <code>"extra"</code>/<code>"installer-paths"</code> пропишите указания для composer-а, куда и как устанавливать вёрстку и модули.</li>
-                    </ul>
-                    <p>5. В результате Ваш <code>composer.json</code> должен преобрести примерно следующий вид:</p>
-                    <pre>
-{
-  "name": "notamedia/myproject",
-  "description": "Проект от агенства Notamedia",
-  "keywords": [
-    "bitrix"
+<p>Если вышеописанные требования выполнены, Вы можете приступать к использованию Composer в 1С-Битрикс.</p>
+
+<ul>
+<li><p>Положите composer.json в document_root проекта. Туда, где лежит <code>urlrewrite.php</code> и корневой <code>index.php</code>. <br/>
+Здесь же Вы можете разместить файл <code>composer.phar</code>, который содержит в себе исполняемое приложение Композера.</p></li>
+<li><p>Правильно настройте свой файл <code>.gitignore</code>. Здесь часто допускают ошибки, правильная схема следующая:</p>
+
+<ul>
+<li>Git игнорирует папку <code>vendor/</code> и <code>composer.phar</code> - первая должна разворачиваться с помощью composer, а второй вовсе лучше не &quot;таскать&quot; за собой. Корпоративный сектор зачастую боится отключения Github/жёстких политик безопасности. Не поддавайтесь на провокации. Вместо игнорирования вышеописанного правила, лучше воспользуйтесь кэширующим сервером наподобие <a href="https://habrahabr.ru/post/197666/">Satis</a>, установленным на отдельную, доверенную машину.</li>
+<li>Git НЕ игнорирует файл <code>composer.lock</code> - без этого файла Вы никак не можете развернуть на продуктивной площадке именно те версии пакетов, что были Вами протестированы на других площадках.</li>
+</ul></li>
+<li><p>Настройте свой веб-сервер<br/>
+<code>vendor</code>, <code>composer.lock</code>, <code>composer.json</code>, <code>composer.phar</code> должны быть недоступны для посетителей сайта, при обращении к этим файлам должна отдаваться страница 404 или 403.<br/>
+Если у Вас работает Apache, то Вы можете сделать это через файл <code>.htaccess</code>.</p></li>
+<li><p>Настройте файл <code>composer.json</code></p>
+
+<ul>
+<li>Обязательно подключите пакет <code>composer/installers</code> - он позволит устанавливать модули 1С-Битрикс.</li>
+<li>Обязательно прописывайте версии подключаемых пакетов. Это особенно важно для корпоративной разработки, когда Вы не можете позволить себе спонтанного обновления установленных библиотек и модулей.</li>
+<li>Шаблоны вёрстки должны подключаться через Composer</li>
+<li>Модули и наработки компании должны подключаться через Composer</li>
+<li>В разделе <code>repositories</code> укажите доступ к Satis (если он есть)</li>
+<li>Там же отключите прямой доступ к Github/Packagist, если это нужно (<code>&quot;packagist&quot;: false</code>)</li>
+<li>Пропишите там же доступ к репозиториям с вёрсткой и репозиториям в git-е Вашей компании</li>
+<li>В разделе <code>&quot;extra&quot;</code>/<code>&quot;installer-paths&quot;</code> пропишите указания для composer-а, куда и как устанавливать вёрстку и модули.</li>
+</ul></li>
+<li><p>В результате Ваш <code>composer.json</code> должен преобрести примерно следующий вид:</p></li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{
+  &quot;name&quot;: &quot;notamedia/myproject&quot;,
+  &quot;description&quot;: &quot;Проект от агенства Notamedia&quot;,
+  &quot;keywords&quot;: [
+    &quot;bitrix&quot;
   ],
-  "homepage": "http://nota.media",
-  "type": "project",
-  "license": "Commerce",
-  "support": {
-    "issues": "http://issues.notamedia.ru",
+  &quot;homepage&quot;: &quot;http://nota.media&quot;,
+  &quot;type&quot;: &quot;project&quot;,
+  &quot;license&quot;: &quot;Commerce&quot;,
+  &quot;support&quot;: {
+    &quot;issues&quot;: &quot;http://issues.notamedia.ru&quot;,
   },
-  "config": {
-    "process-timeout": 1000
+  &quot;config&quot;: {
+    &quot;process-timeout&quot;: 1000
   },
-  "minimum-stability": "stable",
-  "require": {
-    "php": ">=5.4.0",
-    "notamedia/console-jedi": "v1.0",
-    "notamedia/projectmarkup": "v1.0.1",
-    "digitalwand/digitalwand.admin_helper": "2.0.1",
-    "composer/installers": "1.0.22",
+  &quot;minimum-stability&quot;: &quot;stable&quot;,
+  &quot;require&quot;: {
+    &quot;php&quot;: &quot;&gt;=5.4.0&quot;,
+    &quot;notamedia/console-jedi&quot;: &quot;v1.0&quot;,
+    &quot;notamedia/projectmarkup&quot;: &quot;v1.0.1&quot;,
+    &quot;digitalwand/digitalwand.admin_helper&quot;: &quot;2.0.1&quot;,
+    &quot;composer/installers&quot;: &quot;1.0.22&quot;,
   },
-  "require-dev": {
-    "phpunit/phpunit": "4.8.x-dev",
+  &quot;require-dev&quot;: {
+    &quot;phpunit/phpunit&quot;: &quot;4.8.x-dev&quot;,
   },
-  "extra": {
-    "installer-paths": {
-      "local/templates/.default/project_markup": ["notamedia/projectmarkup"]
+  &quot;extra&quot;: {
+    &quot;installer-paths&quot;: {
+      &quot;local/templates/.default/project_markup&quot;: [&quot;notamedia/projectmarkup&quot;]
     }
   },
-  "repositories": [
+  &quot;repositories&quot;: [
     {
-      "packagist": false
+      &quot;packagist&quot;: false
     },
     {
-      "type": "composer",
-      "url": "http://satis.for.friends.notamedia.ru"
+      &quot;type&quot;: &quot;composer&quot;,
+      &quot;url&quot;: &quot;http://satis.for.friends.notamedia.ru&quot;
     },
     {
-      "type": "vcs",
-      "url": "git@some.gitpath.notamedia.ru:notamedia/projectmarkup"
+      &quot;type&quot;: &quot;vcs&quot;,
+      &quot;url&quot;: &quot;git@some.gitpath.notamedia.ru:notamedia/projectmarkup&quot;
     }
   ]
-}</pre>
-
-    <p>6. Начинайте разрабатывать свои модули на базе существующих решений и/или <a href="https://github.com/bitrix-expert/bex.d7dull">заготовок</a>.</p>
-    <p>7. Экономьте время разработчиков и деньги компании. Не пишите решения дважды! Разрабатывайте модули, отдавайте их в опенсорс и делайте проекты совместно с коллегами по цеху!</p>
-
-
-
+}
+</code></pre></div>
+<ul>
+<li><p>Начинайте разрабатывать свои модули на базе существующих решений и/или <a href="https://github.com/bitrix-expert/bex.d7dull">заготовок</a>.</p></li>
+<li><p>Экономьте время разработчиков и деньги компании. Не пишите решения дважды! Разрабатывайте модули, отдавайте их в опенсорс и делайте проекты совместно с коллегами по цеху!</p></li>
+</ul>
 
                 </div>
             </div>
@@ -189,5 +186,4 @@
     </script>
 <!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter35640745 = new Ya.Metrika({ id:35640745, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/35640745" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 </body>
-
 </html>
